@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>Movie Seat Booking Using JS</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <h1 class="text-center text-white m-5">This web page is designed by Shahmeer Bukahri</h1>
+    <h3 class="text-center text-white m-5">Movie Seat Booking Using JS</h3>
+    <div id="main-container" class="container">
+        <!--Here is Movie Selection Div-->
+        <div class="pick-a-movie d-flex flex-row justify-content-center">
+            <p class="mr-2">Pick a movie:</p>
+            <select id="select-movie" class="form-select h-25" aria-label="Default select example" onchange="selectMovieFun(this)">
+                <option selected>Open This Select Menu</option>
+                <option value="1" data-price="10" movie-name="Avenders End Game">Avenders End Game($<p>10</p>)</option>   <!--Here data-price is the coder created attribute-->
+                <option value="2" data-price="12" movie-name="Joker">Joker($<p>12</p>)</option>
+                <option value="3" data-price="8" movie-name="Toy Story 4">Toy Story 4($<p>8</p>)</option>
+                <option value="4" data-price="9" movie-name="The Lion King">The Lion King($<p>9</p>)</option>
+              </select>
+        </div>
+        <!--Here is Movie Instruction Div-->
+        <div id="instruction" class="d-flex flex-row justify-content-center mt-4">
+            <div id="free" class=" ml-3 clip-path-seats"></div><p class="ml-1 mr-3">N/A</p>
+            <div id="selected" class="clip-path-seats"></div><p class="ml-1 mr-3">Selected</p>
+            <div id="occupied" class="clip-path-seats"></div><p class="ml-1 mr-3">Occupied</p>
+        </div>
+        <!--Here is the screen div-->
+        <div id="screen" class="d-flex flex-row justify-content-center mt-4">
+            <div class="clip-path-screen"></div>
+        </div>
+
+        <div class="d-flex flex-column justify-content-center mt-4">
+            <div class="row-1 d-flex flex-row justify-content-center">
+                <div id="row-1-seat-1" class="occupied-seat-background-color seat-1 mr-1" onclick="reserveSeatFun(this)"></div>
+                <div id="row-1-seat-2" class="background-color seat-2 mr-4" onclick="reserveSeatFun(this)"></div>
+                <div id="row-1-seat-3" class="background-color seat-3" onclick="reserveSeatFun(this)"></div>
+                <div id="row-1-seat-4" class="background-color seat-4 ml-1 mr-1" onclick="reserveSeatFun(this)"></div>
+                <div id="row-1-seat-5" class="background-color seat-5 mr-1" onclick="reserveSeatFun(this)"></div>     <!--Occupied Seat-->
+                <div id="row-1-seat-6" class="background-color seat-6 mr-1" onclick="reserveSeatFun(this)"></div>     <!--Occupied Seat-->
+                <div id="row-1-seat-7" class="background-color seat-7 ml-4" onclick="reserveSeatFun(this)"></div>
+                <div id="row-1-seat-8" class="background-color seat-8 ml-1" onclick="reserveSeatFun(this)"></div>
+            </div>
+            <div class="row-2 d-flex flex-row justify-content-center">
+                <div id="row-2-seat-1" class="background-color seat-1 mr-1" onclick="reserveSeatFun(this)"></div>
+                <div id="row-2-seat-2" class="background-color seat-2 mr-4" onclick="reserveSeatFun(this)"></div>
+                <div id="row-2-seat-3" class="background-color seat-3" onclick="reserveSeatFun(this)"></div>         <!--Occupied Seat-->
+                <div id="row-2-seat-4" class="background-color seat-4 ml-1 mr-1" onclick="reserveSeatFun(this)"></div>
+                <div id="row-2-seat-5" class="background-color seat-5 mr-1" onclick="reserveSeatFun(this)"></div>
+                <div id="row-2-seat-6" class="background-color seat-6 mr-1" onclick="reserveSeatFun(this)"></div>
+                <div id="row-2-seat-7" class="background-color seat-7 ml-4" onclick="reserveSeatFun(this)"></div>
+                <div id="row-2-seat-8" class="background-color seat-8 ml-1" onclick="reserveSeatFun(this)"></div>
+            </div>
+            <div class="row-3 d-flex flex-row justify-content-center">
+                <div id="row-3-seat-1" class="background-color seat-1 mr-1" onclick="reserveSeatFun(this)"></div>
+                <div id="row-3-seat-2" class="background-color seat-2 mr-4" onclick="reserveSeatFun(this)"></div>
+                <div id="row-3-seat-3" class="background-color seat-3" onclick="reserveSeatFun(this)"></div>
+                <div id="row-3-seat-4" class="background-color seat-4 ml-1 mr-1" onclick="reserveSeatFun(this)"></div>
+                <div id="row-3-seat-5" class="background-color seat-5 mr-1" onclick="reserveSeatFun(this)"></div>
+                <div id="row-3-seat-6" class="background-color seat-6 mr-1" onclick="reserveSeatFun(this)"></div>
+                <div id="row-3-seat-7" class="background-color seat-7 ml-4" onclick="reserveSeatFun(this)"></div>
+                <div id="row-3-seat-8" class="background-color seat-8 ml-1" onclick="reserveSeatFun(this)"></div>
+            </div>
+            <div class="row-4 d-flex flex-row justify-content-center">
+                <div id="row-4-seat-1" class="background-color seat-1 mr-1" onclick="reserveSeatFun(this)"></div>
+                <div id="row-4-seat-2" class="background-color seat-2 mr-4" onclick="reserveSeatFun(this)"></div>
+                <div id="row-4-seat-3" class="background-color seat-3" onclick="reserveSeatFun(this)"></div>
+                <div id="row-4-seat-4" class="background-color seat-4 ml-1 mr-1" onclick="reserveSeatFun(this)"></div>
+                <div id="row-4-seat-5" class="background-color seat-5 mr-1" onclick="reserveSeatFun(this)"></div>
+                <div id="row-4-seat-6" class="background-color seat-6 mr-1" onclick="reserveSeatFun(this)"></div>
+                <div id="row-4-seat-7" class="background-color seat-7 ml-4" onclick="reserveSeatFun(this)"></div>
+                <div id="row-4-seat-8" class="background-color seat-8 ml-1" onclick="reserveSeatFun(this)"></div>
+            </div>
+            <div class="row-5 d-flex flex-row justify-content-center">
+                <div id="row-5-seat-1" class="background-color seat-1 mr-1" onclick="reserveSeatFun(this)"></div>
+                <div id="row-5-seat-2" class="background-color seat-2 mr-4" onclick="reserveSeatFun(this)"></div>
+                <div id="row-5-seat-3" class="background-color seat-3" onclick="reserveSeatFun(this)"></div>
+                <div id="row-5-seat-4" class="background-color seat-4 ml-1 mr-1" onclick="reserveSeatFun(this)"></div>
+                <div id="row-5-seat-5" class="background-color seat-5 mr-1" onclick="reserveSeatFun(this)"></div>
+                <div id="row-5-seat-6" class="background-color seat-6 mr-1" onclick="reserveSeatFun(this)"></div>
+                <div id="row-5-seat-7" class="background-color seat-7 ml-4" onclick="reserveSeatFun(this)"></div>
+                <div id="row-5-seat-8" class="background-color seat-8 ml-1" onclick="reserveSeatFun(this)"></div>
+            </div>
+            <div class="row-6 d-flex flex-row justify-content-center">
+                <div id="row-6-seat-1" class="background-color seat-1 mr-1" onclick="reserveSeatFun(this)"></div>
+                <div id="row-6-seat-2" class="background-color seat-2 mr-4" onclick="reserveSeatFun(this)"></div>
+                <div id="row-6-seat-3" class="background-color seat-3" onclick="reserveSeatFun(this)"></div>
+                <div id="row-6-seat-4" class="background-color seat-4 ml-1 mr-1" onclick="reserveSeatFun(this)"></div>
+                <div id="row-6-seat-5" class="background-color seat-5 mr-1" onclick="reserveSeatFun(this)"></div>
+                <div id="row-6-seat-6" class="background-color seat-6 mr-1" onclick="reserveSeatFun(this)"></div>
+                <div id="row-6-seat-7" class="background-color seat-7 ml-4" onclick="reserveSeatFun(this)"></div>
+                <div id="row-6-seat-8" class="background-color seat-8 ml-1" onclick="reserveSeatFun(this)"></div>
+            </div>
+        </div>
+        <div class="text-center mt-5">
+            <button id="booked-button" class="booked-button">Book</button>
+        </div>
+        <div id="your-total" class="text-center mt-5">
+            You have selected 0 seats for a price of 0.
+        </div>
+
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+   <script src="index.js"></script>
+  </body>
+</html>

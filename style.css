@@ -1,0 +1,51 @@
+body{
+    background-color: rgb(46, 2, 46);
+    color: white;
+}
+.clip-path-seats{
+    clip-path: ellipse(49% 65% at 50% 100%);
+    width: 20px;
+    height: 20px;
+}
+#free{
+    background-color: rgb(207, 207, 207);
+}
+#selected{
+    background-color: aqua;
+}
+#occupied{
+    background-color: red;
+}
+.clip-path-screen{
+    clip-path: polygon(0 0, 100% 0, 96% 100%, 4% 100%);
+    background-color: aliceblue;
+    width: 200px;
+    height: 60px;
+}
+.row-1 > div, .row-2 > div, .row-3 > div, .row-4 > div, .row-5 > div, .row-6 > div{
+    clip-path: ellipse(49% 65% at 50% 100%);
+    width: 15px;
+    height: 15px;
+    cursor: pointer;
+}
+.background-color{
+    background-color: rgb(207, 207, 207);
+}
+.occupied-seat-background-color{
+    background-color: red;
+}
+.seat-selected{
+    background-color: aqua;
+}
+#booked-button{
+    height: 40px;
+    width: 80px;
+    cursor: pointer;
+    border: 2px solid white;
+    border-radius: 10px;
+}
+#booked-button:hover{
+    background-color: red;
+    color: white;
+    border: 2px solid red;
+}
